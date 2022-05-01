@@ -11,32 +11,23 @@ export default function Pokedex() {
 
   useEffect(() => {
     setLoading(true);
-    let cancel;
-    axios
-      .get(url, {
-        cancelToken: new axios.CancelToken((c) => (cancel = c)),
-      })
-      .then((res) => {
-        setLoading(false);
-        res.data.results.map((p) => {
-          axios
-            .get(p.url, {
-              cancelToken: new axios.CancelToken((c) => (cancel = c)),
-            })
-            .then((res) => {
-              setPokemon((pokemon) => [...pokemon, res.data]);
-            });
-          return [];
-        });
+    axios.get(url).then((res) => {
+      setLoading(false);
+      res.data.results.map((p) => {
+        axios
+          .get(p.url)
+          .then((res) => {
+            setPokemon((pokemon) => [...pokemon, res.data]);
+          });
+        return [];
       });
-
-    return () => cancel();
+    });
   }, [url]);
 
   if (loading) return "Loading...";
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <PokedexTable pokemon={pokemon} />
+      <PokedexTable pokemons={pokemon} />
     </Box>
   );
 }
