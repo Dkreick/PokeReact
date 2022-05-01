@@ -73,10 +73,9 @@ export default function PokedexTable(props) {
                 return (
                   <TableRow hover role="checkbox" tabIndex={-1} key={pokemon.code} onClick={() => handleOpen(pokemon)}>
                     {columns.map((column) => {
-                      const value = pokemon[column.id];
                       return (
                         <TableCell key={column.id}>
-                          {value}
+                          {pokemon[column.id]}
                         </TableCell>
                       );
                     })}
