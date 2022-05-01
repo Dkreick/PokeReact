@@ -1,0 +1,10 @@
+.header__container {
+  background-color: red !important;
+  height: 60px;
+  text-align: center;
+
+  .header_title {
+    flex-grow: 1;
+    margin-top: 13px;
+  }
+}
