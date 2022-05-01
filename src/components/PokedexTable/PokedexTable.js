@@ -1,5 +1,5 @@
 import React from 'react';
-import Paper from '@mui/material/Paper';
+import Card from '@mui/material/Card';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -8,6 +8,7 @@ import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import PokemonDetail from '../Detail/Detail';
+import './PokedexTable.scss';
 
 const columns = [
   { id: 'id', label: 'Name', minWidth: 170 },
@@ -52,7 +53,7 @@ export default function PokedexTable(props) {
   };
 
   return (
-    <Paper>
+    <Card className='pokedex__table__container'>
       <TableContainer>
         <Table>
           <TableHead>
@@ -95,6 +96,6 @@ export default function PokedexTable(props) {
         onRowsPerPageChange={handleChangeRowsPerPage}
       />
       <PokemonDetail open={open} onChange={handleClose} data={selectedPokemon} />
-    </Paper>
+    </Card>
   );
 }

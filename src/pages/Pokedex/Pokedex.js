@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Box from '@mui/material/Box';
 import axios from "axios";
 import PokedexTable from "../../components/PokedexTable/PokedexTable";
 
@@ -26,8 +25,6 @@ export default function Pokedex() {
 
   if (loading) return "Loading...";
   return (
-    <Box sx={{ flexGrow: 1 }}>
       <PokedexTable pokemons={pokemon} />
-    </Box>
   );
 }
