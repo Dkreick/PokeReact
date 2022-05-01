@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react";
 import Box from '@mui/material/Box';
 import axios from "axios";
-import './Pokedex.scss';
 import PokedexTable from "../../components/PokedexTable/PokedexTable";
 
 export default function Pokedex() {
 
   const [pokemon, setPokemon] = useState([]);
   const [loading, setLoading] = useState(true);
-  const url = "https://pokeapi.co/api/v2/pokemon";
+  const url = "https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0";
 
   useEffect(() => {
     setLoading(true);
@@ -25,7 +24,6 @@ export default function Pokedex() {
               cancelToken: new axios.CancelToken((c) => (cancel = c)),
             })
             .then((res) => {
-              console.log(res.data);
               setPokemon((pokemon) => [...pokemon, res.data]);
             });
           return [];
@@ -37,7 +35,7 @@ export default function Pokedex() {
 
   if (loading) return "Loading...";
   return (
-    <Box sx={{ flexGrow: 1 }} className='pokedex__container'>
+    <Box sx={{ flexGrow: 1 }}>
       <PokedexTable pokemon={pokemon} />
     </Box>
   );
