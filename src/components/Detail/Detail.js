@@ -12,7 +12,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 
 export default function PokemonDetail(props) {
-  function handleClose(event) {
+  const handleClose = (event) => {
     props.onChange(event.target.value);
   }
 
@@ -25,7 +25,7 @@ export default function PokemonDetail(props) {
     >
       <DialogTitle> <IconButton onClick={handleClose}><ArrowBackIcon /></IconButton>{props.data.name}</DialogTitle>
       <DialogContent>
-        {/* {props.data.types
+        {props.data.types
           ? props.data.types.map((type) => {
             return (
               <Chip label={type.type.name} key={type.id} />
@@ -39,7 +39,7 @@ export default function PokemonDetail(props) {
               : null
           }
           alt=""
-        /> */}
+        />
       </DialogContent>
     </Dialog>
   );
