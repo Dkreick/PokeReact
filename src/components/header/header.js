@@ -7,8 +7,8 @@ import './Header.scss';
 export default function Header() {
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" className='header__container'>
-        <Typography variant="h6" component="div" className='header_title'>
+      <AppBar position='static' className='header__container'>
+        <Typography variant='h6' component='div' className='header_title'>
           Poke React
         </Typography>
       </AppBar>

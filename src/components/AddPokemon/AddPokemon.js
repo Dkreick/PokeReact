@@ -10,17 +10,17 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import TextField from '@mui/material/TextField';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
-  return <Slide direction="up" ref={ref} {...props} />;
+  return <Slide direction='up' ref={ref} {...props} />;
 });
 
 export default function AddPokemon(props) {
   const handleClose = (event) => {
     props.onChange(event.target.value);
-  }
+  };
 
   const handleSubmit = (event) => {
     props.onChange(event.target.value);
-  }
+  };
 
   return (
     <Dialog
@@ -29,26 +29,32 @@ export default function AddPokemon(props) {
       keepMounted
       onClose={handleClose}
     >
-      <DialogTitle> <IconButton onClick={handleClose}><ArrowBackIcon /></IconButton>Add your custom Pokemon</DialogTitle>
+      <DialogTitle>
+        {' '}
+        <IconButton onClick={handleClose}>
+          <ArrowBackIcon />
+        </IconButton>
+        Add your custom Pokemon
+      </DialogTitle>
       <DialogContent>
         <TextField
-          margin="dense"
-          id="name"
-          label="Name"
+          margin='dense'
+          id='name'
+          label='Name'
           type='text'
           fullWidth
         />
         <TextField
-          margin="dense"
-          id="height"
-          label="Height (Cm)"
+          margin='dense'
+          id='height'
+          label='Height (Cm)'
           type='number'
           fullWidth
         />
         <TextField
-          margin="dense"
-          id="weight"
-          label="Weight (Kg)"
+          margin='dense'
+          id='weight'
+          label='Weight (Kg)'
           type='number'
           fullWidth
         />
