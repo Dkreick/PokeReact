@@ -1,0 +1,29 @@
+.detail__title {
+  display: flex;
+  align-items: center;
+  text-transform: capitalize;
+}
+
+.detail__content {
+  display: flex;
+  .detail__chips__container {
+    text-transform: capitalize;
+    .detail__chip {
+      margin-top: 5px;
+      margin-right: 5px;
+    }
+    .detail__image {
+      display: block;
+      width: 200px;
+    }
+  }
+
+  .detail__stat__container {
+    margin-top: 5px;
+
+    .detail__stat__title {
+      text-transform: capitalize;
+      margin-bottom: 2px;
+    }
+  }
+}
