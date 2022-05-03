@@ -26,8 +26,6 @@ const columns = [
 ];
 
 export default function PokedexTable(props) {
-
-
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
   const [open, setOpen] = React.useState(false);
@@ -69,10 +67,17 @@ export default function PokedexTable(props) {
             </TableRow>
           </TableHead>
           <TableBody>
-            {props.pokemons.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+            {props.pokemons
+              .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map((pokemon) => {
                 return (
-                  <TableRow hover role="checkbox" tabIndex={-1} key={pokemon.code} onClick={() => handleOpen(pokemon)}>
+                  <TableRow
+                    hover
+                    role='checkbox'
+                    tabIndex={-1}
+                    key={pokemon.code}
+                    onClick={() => handleOpen(pokemon)}
+                  >
                     {columns.map((column) => {
                       return (
                         <TableCell key={column.id}>
@@ -87,7 +92,7 @@ export default function PokedexTable(props) {
         </Table>
       </TableContainer>
       <TablePagination
-        component="div"
+        component='div'
         count={props.pokemons.length}
         rowsPerPage={rowsPerPage}
         rowsPerPageOptions={[5, 10, 25, 100]}
@@ -95,7 +100,11 @@ export default function PokedexTable(props) {
         onPageChange={handleChangePage}
         onRowsPerPageChange={handleChangeRowsPerPage}
       />
-      <PokemonDetail open={open} onChange={handleClose} data={selectedPokemon} />
+      <PokemonDetail
+        open={open}
+        onChange={handleClose}
+        data={selectedPokemon}
+      />
     </Card>
   );
 }

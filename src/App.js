@@ -4,8 +4,8 @@ import PokedexTable from './pages/Pokedex/Pokedex';
 function App() {
   return (
     <div>
-      <Header/>
-      <PokedexTable/>
+      <Header />
+      <PokedexTable />
     </div>
   );
 }
