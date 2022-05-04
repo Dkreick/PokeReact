@@ -1,5 +1,18 @@
-.my_pokemons__table__container{
-  width: 740px;
+.my_pokemons__grid__container {
+  display: flex;
   margin: auto;
   margin-top: 30px;
+  width: 740px;
+
+  .my_pokemons__card {
+    width: 175px;
+    margin-right: 10px;
+
+    .my_pokemons__card__title {
+      background-color: red;
+      color: white;
+      height: 50px;
+      padding-top: 15px;
+    }
+  }
 }

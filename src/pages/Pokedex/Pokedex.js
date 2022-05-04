@@ -6,8 +6,13 @@ import Fab from '@mui/material/Fab';
 import AddIcon from '@mui/icons-material/Add';
 import './Pokedex.scss';
 import AddPokemon from '../../components/AddPokemon/AddPokemon';
+import {
+  addPokemon,
+  getMyPokemons,
+} from '../../redux/actions/AddPokemonAction';
+import { connect } from 'react-redux';
 
-export default function Pokedex() {
+function Pokedex({ addPokemon, getMyPokemons }) {
   const [open, setOpen] = React.useState(false);
   const [pokemon, setPokemon] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -38,12 +43,14 @@ export default function Pokedex() {
   return (
     <div className='pokedex__container'>
       <PokedexTable pokemons={pokemon} />
-      <MyPokemons />
+      <MyPokemons pokemons={getMyPokemons} />
       <Fab className='pokedex__add' onClick={handleOpen}>
         <AddIcon />
       </Fab>
 
-      <AddPokemon open={open} onChange={handleClose} />
+      <AddPokemon open={open} onClose={handleClose} onSubmit={addPokemon} />
     </div>
   );
 }
+
+export default connect((store) => store, addPokemon, getMyPokemons)(Pokedex);

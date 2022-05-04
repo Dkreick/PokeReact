@@ -10,21 +10,6 @@ import TableRow from '@mui/material/TableRow';
 import PokemonDetail from '../Detail/Detail';
 import './PokedexTable.scss';
 
-const columns = [
-  { id: 'id', label: 'Name', minWidth: 170 },
-  { id: 'name', label: 'name', minWidth: 100 },
-  {
-    id: 'height',
-    label: 'height',
-    minWidth: 170,
-  },
-  {
-    id: 'weight',
-    label: 'weight',
-    minWidth: 170,
-  },
-];
-
 export default function PokedexTable(props) {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
@@ -56,35 +41,26 @@ export default function PokedexTable(props) {
         <Table>
           <TableHead>
             <TableRow>
-              {columns.map((column) => (
-                <TableCell
-                  key={column.id}
-                  style={{ top: 57, minWidth: column.minWidth }}
-                >
-                  {column.label}
-                </TableCell>
-              ))}
+              <TableCell>Name</TableCell>
+              <TableCell>Height (M)</TableCell>
+              <TableCell>Weight (Kg)</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {props.pokemons
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-              .map((pokemon) => {
+              .map((pokemon, index) => {
                 return (
                   <TableRow
                     hover
                     role='checkbox'
                     tabIndex={-1}
-                    key={pokemon.code}
+                    key={index}
                     onClick={() => handleOpen(pokemon)}
                   >
-                    {columns.map((column) => {
-                      return (
-                        <TableCell key={column.id}>
-                          {pokemon[column.id]}
-                        </TableCell>
-                      );
-                    })}
+                    <TableCell>{pokemon.name}</TableCell>
+                    <TableCell>{pokemon.height / 10}</TableCell>
+                    <TableCell>{pokemon.weight / 10}</TableCell>
                   </TableRow>
                 );
               })}

@@ -31,7 +31,7 @@ export default function PokemonDetail(props) {
         <IconButton onClick={handleClose}>
           <ArrowBackIcon />
         </IconButton>
-        <Typography variant='h5' component='h5' align='center'>
+        <Typography variant='h5' component='div' align='center'>
           {props.data.name}
         </Typography>
       </DialogTitle>
